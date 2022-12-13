@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server ini dgunakan untuk back-end dalam mengelolah database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyuLintang03/TA-GAB2-FIGJAM.git"
+  },
+  "author": "AyuLintang03",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyuLintang03/TA-GAB2-FIGJAM/issues"
+  },
+  "homepage": "https://github.com/AyuLintang03/TA-GAB2-FIGJAM#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
