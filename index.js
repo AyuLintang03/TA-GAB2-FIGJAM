@@ -14,7 +14,13 @@ const userRoutes = require('./Server/src/routes/route-account');
 const userAPIRoutes = require('./Server/src/routes/route-user');
 const produkAPIRoutes = require('./Server/src/routes/route-produkAPI');
 const produkRoutes = require('./Server/src/routes/route-produk');
-
+const barangmasukRoutes = require('./Server/src/routes/route-barang-masuk');
+const barangkeluarRoutes = require('./Server/src/routes/route-barang-keluar');
+const cetakRoutes = require('./Server/src/routes/router-cetak');
+const cetakuserRoutes = require('./Server/src/routes/route-account-cetak');
+const countdatabarangRoutes = require('./Server/src/routes/router-count-databarang');
+const countdatauserRoutes = require('./Server/src/routes/router-count-datauser');
+const sumstokbarangRoutes = require('./Server/src/routes/router-sum-stokbarang');
 // Configurasi library session
 app.use(session({
     resave: true,
@@ -51,6 +57,13 @@ app.use('/user',userRoutes);
 app.use('/',userAPIRoutes);
 app.use('/',produkAPIRoutes);
 app.use('/produk',produkRoutes);
+app.use('/',cetakuserRoutes);
+app.use('/',barangmasukRoutes);
+app.use('/barang_keluar',barangkeluarRoutes);
+app.use('/admin-databarang',countdatabarangRoutes);
+app.use('/admin-datauser',countdatauserRoutes);
+app.use('/admin-stokbarang',sumstokbarangRoutes);
+app.use('/cetak',cetakRoutes);
 app.use('/', appRoutes);
 
 // Gunakan port server

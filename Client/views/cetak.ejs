@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/logo.svg">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Anjosia Coffee</title>
-   
 </head>
 <body>
     <div class="container">
@@ -18,13 +18,11 @@
                 <h2>Anjosia Coffee</h2>
             </div>
             <div class="search">
-                <form action="/user/search" method="get">
-                <input type="text" name="username"  placeholder="search Username">
+                <input type="text" id="search" placeholder="search here">
                 <label for="search"> <i class="fas fa-search"></i></label>
-                </form>
             </div>
-            <div class="user"><a href="/login">
-                <img src="/img/user.png" alt=""></a>
+            <div class="user"><a>
+                <img src="img/user.png" alt=""></a>
             </div>
          </div>         
          <div class="sidebar">
@@ -63,7 +61,7 @@
                 </li>
                 <div class="data">Laporan</div>          
                 <li>
-                    <a href="/cetak">
+                    <a href="#">
                        <i   class="fas fa-print"></i>
                        <div>Cetak Laporan</div>
                     </a>
@@ -74,51 +72,59 @@
             <div class="cards1">
                 <div class="card-back">
                 <div class="card2">
-                    <h1>Data User</h1>
+                    <h1>Cetak Laporan Barang</h1>
                 </div>
                 </div>
                 
             </div> 
-            <div class="card-body">
+
+             <div class="card-body">
                 <div class="table">
-                      <% if (datas.length > 0) { %>
                     <div class="table-responsive">
                        
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Username</th>
-                                    <th>No.Telepon</th>
+                                    <th>Nama Table</th>
                                     <th>Aksi</th>                                                
                                 </tr>
                             </thead>
                             <tbody> 
-                                 <% datas.forEach((data, user) => { %>
                                 <tr>
-                                    <td><%= data.user_id %> </td>
-                                    <td><%=data.username %> </td>
-                                    <td><%=data.nomer_hp%></td> 
+                                    <td>1</td>
+                                    <td>Table User</td> 
                                      <td>
-                                        <nav class="area-aksi">
-                                            <button class="btn btn-edit"><a href="user/edit/<%= data.user_id %>" class="btn-edits">
-                                                <i class="fa-regular fa-pen-to-square"></i></a></button>
-                                            <button class="btn btn-hapus">
-                                                <a href="user/delete/<%= data.user_id %>" class="btn-deletes">
-                                                <i class="fa-solid fa-trash-can"></i></a></button>
-                                        </nav>
-
-                                 </td>                                               
+                                            <button class="btn-cetak"><a href="/user-cetak">Cetak Laporan Data</a></button>
+                                       </td>                                               
                                 </tr>
-                              
-                            <% }) %>
+                               <tr>
+                                    <td>2</td>
+                                    <td>Table Barang</td> 
+                                     <td>
+                                            <button class="btn-cetak"><a href="/cetak-barang">Cetak Laporan Data</a></button>
+                                       </td>                                               
+                                </tr>
+                                 <tr>
+                                    <td>3</td>
+                                    <td>Table Barang Masuk</td> 
+                                     <td>
+                                            <button class="btn-cetak"><a href="/cetak-barang-masuk">Cetak Laporan Data</a></button>
+                                       </td>                                               
+                                </tr>
+                                 <tr>
+                                    <td>4</td>
+                                    <td>Table Barang Keluar</td> 
+                                     <td>
+                                            <button class="btn-cetak"><a href="/cetak-barang-keluar">Cetak Laporan Data</a></button>
+                                       </td>                                               
+                                </tr>
                             </tbody>
                         </table>
-                         <% } else { %>
-                            <p class="text-center">No players found. Go <a href="/player/add" >here</a> to add players.</p>
-                        <% } %>
                    </div>                 
                 </div>          
          </div>
+         
+
 </body>
 </html>

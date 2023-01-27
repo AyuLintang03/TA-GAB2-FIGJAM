@@ -7,7 +7,7 @@ pool.on('error',(err)=> {
 });
 
 module.exports ={
-    // Ambil data semua 
+    // Ambil data semua produk
     getDataProduk(req,res){
         pool.getConnection(function(err, connection) {
             if (err) throw err;
@@ -26,7 +26,45 @@ module.exports ={
             connection.release();
         })
     },
-    // Ambil data berdasarkan ID
+
+       getDataProdukSearch(req,res){
+        let nama_produk = req.query.nama_produk;
+        pool.getConnection(function(err, connection) {
+            if (err) throw err;
+            
+            connection.query(
+               `SELECT * FROM tbl_produk WHERE nama_produk LIKE '%${nama_produk}%'`
+            , function (error, results) {
+                if(error) {false;}  
+                    
+                res.render("produk",{ 
+                    datas : results
+                });
+            
+            });
+            
+            connection.release();
+        })
+    },
+
+    
+    getDataProdukCetak(req,res){
+        pool.getConnection(function(err, connection) {
+            if (err) throw err;
+            connection.query(
+                `
+                SELECT id_produk,jenis_kopi,nama_produk,harga,stok FROM tbl_produk;
+                `
+            , function (error, results) {
+                if(error) throw error;  
+                res.render('cetak-barang',{ 
+                    datas: results 
+                });
+            });
+            connection.release();
+        })
+    },
+    // Ambil data produk berdasarkan ID
     getDataProdukID(req,res){
         let id_produk = req.params.id_produk;
         pool.getConnection(function(err, connection) {
@@ -47,7 +85,7 @@ module.exports ={
     },
 
     
-    // Update data 
+    // Update data User
     editDataProduk(req,res){
        let dataEdit = {
         jenis_kopi : req.body.jeniskopi,
@@ -78,7 +116,7 @@ module.exports ={
     });
     },
     
-    // Simpan data 
+    // Simpan data produk
     addDataProduk(req,res){
         let jenis_kopi = req.body.jeniskopi;
         let nama_produk = req.body.namaproduk;
@@ -95,7 +133,7 @@ module.exports ={
                 connection.release();
             })
     },
-    // Delete data 
+    // Delete data produk
      deleteDataProduk(req,res){
         let id_produk = req.params.id_produk
         pool.getConnection(function(err, connection) {

@@ -16,11 +16,13 @@
 	--twinta:rgba(189,152,98,0.369);
 }
 
+
 html, body {
+	display: flex;
+	justify-content: flex-end;
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
-  scroll-behavior: smooth;
  }
 
 
@@ -32,9 +34,8 @@ html, body {
 	display: flex;
 	flex-direction: column;
 	gap: 81px;
-	height: 951px;
+	height: 647px;
 	overflow: hidden;
-	padding: 55px 0;
 	width: 1440px;
 	box-sizing: content-box;
 
@@ -56,7 +57,7 @@ html, body {
 	margin-left:-5px;
 	min-height:116px;
 	text-align:center;
-	width:309px;
+	width:250px;
 }
 .kotak-login{
 	align-items: center;
@@ -69,10 +70,10 @@ html, body {
 
 .kopi-1{
 
-	height: 407px;
-	width: 400px;
-	margin-top:100px;
-	margin-left: 70px;
+	height: 307px;
+	width: 300px;
+	margin-top:50px;
+	margin-left: 300px;
 
 }
 
@@ -82,10 +83,22 @@ html, body {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 1px;
-	min-height: 388px;
+	min-height: 358px;
 	padding: 52.2px 53px;
-	width: 400px;
-	transform: translate(700px, -400px);
+	width: 300px;
+	transform: translate(900px, -400px);
+}
+
+.overlap-group2{
+	align-items: center;
+	background-color: var(--black-haze);
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1px;
+	height: 408px;
+	padding: 52.2px 53px;
+	width: 300px;
+	transform: translate(900px, -450px);
 }
 
 .flex-row{
@@ -107,7 +120,9 @@ html, body {
 	letter-spacing: 0;
 	line-height: normal;
 }
-
+.registrasi:hover{
+	color: #976c55;
+}
 .belum-punya-akun{
 	color: var(--black);
 	font-family: var(--font-family-inter);
@@ -127,7 +142,7 @@ html, body {
 	display: flex;
 	height: 30px;
 	margin-top: 33px;
-	min-width: 320px;
+	min-width: 220px;
 	padding: 11px 9px;
 }
 
@@ -141,7 +156,7 @@ html, body {
 	display: flex;
 	height: 30px;
 	margin-top: 33px;
-	min-width: 320px;
+	min-width: 220px;
 	padding: 11px 9px;
 }
 
@@ -155,7 +170,7 @@ html, body {
 	display: flex;
 	height: 30px;
 	margin-top: 33px;
-	min-width: 320px;
+	min-width: 220px;
 	padding: 11px 9px;
 }
 
@@ -189,6 +204,17 @@ html, body {
 	min-height: 15px;
 }
 
+.register{
+	color: var(--black);
+	font-family: var(--font-family-inter);
+	font-size: 15px;
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: normal;
+	min-height: 15px;
+}
+
+
 .login{
 	color: #ffffff;
 	font-family: var(--font-family-inter);
@@ -209,10 +235,13 @@ html, body {
 	padding: 13px 70px;
 	color: white;
 }
+.btn_login:hover{
+	background-color: #5c3926;
+}
 
 .btn_register{
 	align-items: center;
-	margin-left: 55px;
+	margin-left: 15px;
 	background: #976c55;
 	border: 1px none;
 	border-radius: 8px;
@@ -224,13 +253,19 @@ html, body {
 	padding: 13px 70px;
 	color: white;
 }
-
+.btn_register:hover{
+	background-color: #5c3926;
+}
 .title h1{
-	transform: translate(50px);
+	transform: translate(350px,30px);
 	color: white;
-	font-size: 32px;
+	font-size: 24px;
 	font-family: var(--font-family-ubuntu_mono);
 }
 .title a{
+	text-decoration: none;
+}
+
+a{
 	text-decoration: none;
 }

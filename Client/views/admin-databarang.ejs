@@ -10,18 +10,16 @@
     <title>Anjosia Coffee</title>
 </head>
 <body>
-    <form action="<%= url %>login/auth" method="POST" class="col-md-4 card">
     <div class="container">
         <div class="topbar">
             <div class="logo">
                 <h2>Anjosia Coffee</h2>
             </div>
             <div class="search">
-              
-                </form>
+               
             </div>
             <div class="user">
-                <a href="<%= url %>login/logout">
+                <a href="/login">
                 <img src="img/user.png"></a>
             </div>
          </div>         
@@ -73,7 +71,7 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-name">Data Barang</div>
-                       <button class="btn-db"><a class="detail" href="/admin-databarang">Detail</a></button>                   
+                        <p class="number"><%= datas %> </p>                        
                     </div>
                     <div class="icon-box">
                         <i class="fas fa-folder"></i>
@@ -82,9 +80,7 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-name">Data User </div>
-                         <button class="btn-db"><a class="detail" href="/admin-datauser">Detail</a></button>                   
-                    
-                    
+                           <button class="btn-db"><a class="detail" href="/admin-datauser">Detail</a></button>      
                     </div>
                     <div class="icon-box">
                         <i class="fas fa-user"></i>
@@ -102,9 +98,9 @@
             </div>
             <div class="charts">
                 <div class="chart">
-                     <div id="app">
-                          <button class="add-note" type="button">+</button>
-</div>
+                    <div id="app">
+                        <button class="add-note" type="button">+</button>
+                    </div>
                     </div>
                
                     <div class="wrapper">
@@ -135,7 +131,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.1/dist/chart.umd.min.js"></script>
     <script src="script2.js"></script>
      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
-</form>
 </html>

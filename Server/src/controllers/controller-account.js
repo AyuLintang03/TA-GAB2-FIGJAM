@@ -7,7 +7,7 @@ pool.on('error',(err)=> {
 });
 
 module.exports ={
-    // Ambil data 
+    
     getDataUser(req,res){
         pool.getConnection(function(err, connection) {
             if (err) throw err;
@@ -30,7 +30,72 @@ module.exports ={
             connection.release();
         })
     },
-    // Ambil data berdasarkan ID
+
+    getDataUserSearch(req,res){
+        let username = req.query.username;
+        pool.getConnection(function(err, connection) {
+            if (err) throw err;
+            
+            connection.query(
+               `SELECT user_id,username,nomer_hp FROM tbl_user WHERE username LIKE '%${username}%'`
+            , function (error, results) {
+                if(error) {false;}  
+                    
+                res.render("user",{ 
+                    datas : results
+                });
+            
+            });
+            
+            connection.release();
+        })
+    },
+    
+
+    getDataUserCount(req,res){
+        pool.getConnection(function(err, connection) {
+            if (err) throw err;
+            
+            connection.query(
+                `
+                SELECT COUNT(*) FROM tbl_user;
+                `
+            , function (error, results) {
+                if(error) {false;}  
+                    
+                res.render("admin",{ 
+                    results : results
+                });
+            
+            });
+            
+            connection.release();
+        })
+    },
+
+    getDataUserCetak(req,res){
+        pool.getConnection(function(err, connection) {
+            if (err) throw err;
+            
+            connection.query(
+                `
+                SELECT user_id,username,nomer_hp FROM tbl_user;
+                `
+            , function (error, results) {
+                if(error) {false;}  
+                    
+                res.render("user-cetak",{ 
+                    success: true, 
+                    message: 'Berhasil ambil data!',
+                    data : results
+                });
+            
+            });
+            
+            connection.release();
+        })
+    },
+
     getDataUserByID(req,res){
         let userId = req.params.user_id;
         pool.getConnection(function(err, connection) {
@@ -42,7 +107,7 @@ module.exports ={
             , [userId],
             function (error, results) {
                 if(error) throw error;  
-                res.render('edit-produk.ejs',{ 
+                res.render('edit-user',{ 
                     data:results[0]
                 });
                 
@@ -51,7 +116,7 @@ module.exports ={
             connection.release();
         })
     },
-    // Update data 
+
     editDataUser(req,res){
        let dataEdit = {
             username : req.body.username,
@@ -72,7 +137,7 @@ module.exports ={
             connection.release();
         })
     },
-    // Delete data 
+
     deleteDataUser(req,res){
         let user_id = req.params.user_id
         pool.getConnection(function(err, connection) {
